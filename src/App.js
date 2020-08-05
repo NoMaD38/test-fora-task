@@ -18,6 +18,7 @@ export const App = () => {
     rooms:[]
   });
 
+  // Создаём пользователя и получаем информацию о комнате
   const onJoin = async(user) => {
     dispatch({type: 'JOINED', payload: user})
     socket.emit('ROOM:JOIN', user)
@@ -30,6 +31,7 @@ export const App = () => {
       })
   };
 
+  // Меняем комнату пользователя и получаем информацию о комнате
   const onReJoin = async (data) => {
     dispatch({
       type: 'REJOINED',
@@ -45,6 +47,7 @@ export const App = () => {
       })
   };
 
+  // Записываем список пользователей
   const setUsers = (users) => {
     dispatch({
       type: 'SET_USERS',
@@ -52,6 +55,7 @@ export const App = () => {
     })
   };
 
+  // Записываем список комнат
   const setRooms = (rooms) =>{
     dispatch({
       type: 'SET_ROOMS',
@@ -59,6 +63,7 @@ export const App = () => {
     })
   };
   
+  // Записываем список сообщений
   const setMessages = (messages) =>{
     dispatch({
       type: 'SET_MESSAGES',
@@ -66,7 +71,7 @@ export const App = () => {
     })
   };
 
-
+  // Добавляем новое сообщение
   const addMessage = (message) =>{
     dispatch({
       type: 'ADD_MESSAGE',
